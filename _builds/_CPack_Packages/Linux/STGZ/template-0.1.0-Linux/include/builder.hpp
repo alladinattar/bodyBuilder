@@ -10,12 +10,12 @@ class builder{
   std::string config_;
   bool install_;
   bool pack_;
-  int timeout_;
+  uint timeout_;
   boost::process::child process_;
  public:
-  builder(std::string config, bool install, bool pack, int timeout):config_(config), install_(install), pack_(pack), timeout_(timeout){};
+  builder(std::string config, bool install, bool pack, uint timeout):config_(config), install_(install), pack_(pack), timeout_(timeout){};
   void startBuild();
-  bool executeCommand(std::string arguments);
+  bool executeCommand(const std::string& arguments);
 
 };
 #endif // INCLUDE_HEADER_HPP_

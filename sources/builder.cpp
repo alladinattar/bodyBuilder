@@ -21,7 +21,7 @@ void builder::startBuild() {
               + config_);
   if (!success)
     return;
-  // build
+
   success = executeCommand("--build _builds");
   if (!success)
     return;
@@ -47,7 +47,7 @@ void builder::startBuild() {
   }
 }
 
-bool builder::executeCommand( std::string arguments){
+bool builder::executeCommand( const std::string& arguments){
   bp::ipstream stream;
   auto cmake_path = boost::process::search_path("cmake");
 
@@ -70,7 +70,7 @@ bool builder::executeCommand( std::string arguments){
   auto exit_code = process_.exit_code();
 
   if (exit_code != 0) {
-    std::cout << std::to_string(exit_code) + " exit code. Exiting..." << std::endl;
+    std::cout << std::to_string(exit_code) + " exit code. Exiting ..." << std::endl;
     return false;
   } else {
     return true;
