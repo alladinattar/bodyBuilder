@@ -16,7 +16,7 @@ class builder {
 
  public:
   builder(std::string config, bool install, bool pack, uint timeout)
-      : config_(config), install_(install), pack_(pack), timeout_(timeout){};
+      : config_(config), install_(install), pack_(pack), timeout_(timeout){}
   void startBuild();
   bool executeCommand(const std::string& arguments);
 };
